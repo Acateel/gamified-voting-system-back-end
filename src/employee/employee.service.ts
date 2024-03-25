@@ -48,6 +48,10 @@ export class EmployeeService {
   ): Promise<Employee> {
     const employee = await this.employeeRepo.findOneBy({ id })
 
+    if (!employee) {
+      throw new NotFoundException("Employee don't found")
+    }
+
     employee.fullname = updateEmployeeDto.fullname ?? employee.fullname
     employee.specialty = updateEmployeeDto.specialty ?? employee.specialty
     employee.purposefulness =
