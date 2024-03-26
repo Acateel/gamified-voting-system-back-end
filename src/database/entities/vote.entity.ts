@@ -14,7 +14,7 @@ export class Vote {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column()
+  @Column({ type: 'real' })
   weight: number
 
   @ManyToOne(() => Employee, (employee) => employee.votes, {

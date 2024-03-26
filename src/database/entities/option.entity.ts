@@ -18,7 +18,7 @@ export class Option {
   @Column()
   text: string
 
-  @Column({ default: 0 })
+  @Column({ default: 0, type: 'real' })
   count: number
 
   @ManyToOne(() => Voting, (voting) => voting.options, { onDelete: 'CASCADE' })
