@@ -7,14 +7,14 @@ import {
   UpdateDateColumn,
 } from 'typeorm'
 import { Employee } from './employee.entity'
-import { Voting } from './voting.entity'
+import { Option } from './option.entity'
 
 @Entity()
 export class Vote {
   @PrimaryGeneratedColumn()
   id: number
 
-  @Column()
+  @Column({ type: 'real' })
   weight: number
 
   @ManyToOne(() => Employee, (employee) => employee.votes, {
@@ -22,8 +22,8 @@ export class Vote {
   })
   employee: Employee
 
-  @ManyToOne(() => Voting, (voting) => voting.votes, { onDelete: 'CASCADE' })
-  voting: Voting
+  @ManyToOne(() => Option, (option) => option.votes, { onDelete: 'CASCADE' })
+  option: Option
 
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date
