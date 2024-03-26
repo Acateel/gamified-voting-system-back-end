@@ -7,7 +7,6 @@ import {
   UpdateDateColumn,
 } from 'typeorm'
 import { Option } from './option.entity'
-import { Vote } from './vote.entity'
 
 @Entity()
 export class Voting {
@@ -37,9 +36,6 @@ export class Voting {
 
   @OneToMany(() => Option, (option) => option.voting, { onDelete: 'CASCADE' })
   options: Option[]
-
-  @OneToMany(() => Vote, (vote) => vote.voting, { onDelete: 'CASCADE' })
-  votes: Vote[]
 
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date
