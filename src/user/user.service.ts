@@ -47,7 +47,7 @@ export class UserService {
   async findOneByEmailWithPassword(email: string): Promise<User> {
     const user = await this.userRepo
       .createQueryBuilder('user')
-      .select('user.password')
+      .addSelect('user.password')
       .where('user.email = :email', { email })
       .getOne()
 
