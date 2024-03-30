@@ -44,6 +44,16 @@ export class UserService {
     return user
   }
 
+  async findOneByEmailWithPassword(email: string): Promise<User> {
+    const user = await this.userRepo
+      .createQueryBuilder('user')
+      .select('user.password')
+      .where('user.email = :email', { email })
+      .getOne()
+
+    return user
+  }
+
   async update(id: number, { employeeId }: UpdateUserDto): Promise<User> {
     const user = await this.userRepo.findOneBy({ id })
 
