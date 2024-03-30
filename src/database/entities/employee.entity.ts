@@ -43,9 +43,6 @@ export class Employee {
   @OneToMany(() => Vote, (vote) => vote.employee, { onDelete: 'CASCADE' })
   votes: Vote[]
 
-  @OneToOne(() => User, (user) => user.employee, { onDelete: 'CASCADE' })
-  user: User
-
   @CreateDateColumn({ type: 'timestamptz' })
   createdAt: Date
 

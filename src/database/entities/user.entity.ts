@@ -2,6 +2,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -21,9 +22,10 @@ export class User {
   @Column({ select: false })
   password: string
 
-  @OneToOne(() => Employee, (employee) => employee.user, {
+  @OneToOne(() => Employee, {
     onDelete: 'CASCADE',
   })
+  @JoinColumn()
   employee: Employee
 
   @CreateDateColumn({ type: 'timestamptz' })
