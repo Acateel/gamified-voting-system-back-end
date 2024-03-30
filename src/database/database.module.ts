@@ -6,6 +6,7 @@ import { Merit } from './entities/merit.entity'
 import { Vote } from './entities/vote.entity'
 import { Voting } from './entities/voting.entity'
 import { Option } from './entities/option.entity'
+import { User } from './entities/user.entity'
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { Option } from './entities/option.entity'
         password: configService.getOrThrow('TYPEORM_PASSWORD'),
         logging: configService.getOrThrow('TYPEORM_LOGGING'),
         synchronize: false,
-        entities: [Employee, Merit, Option, Vote, Voting],
+        entities: [Employee, Merit, Option, Vote, Voting, User],
       }),
       inject: [ConfigService],
     }),

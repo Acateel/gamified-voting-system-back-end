@@ -3,11 +3,13 @@ import {
   CreateDateColumn,
   Entity,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm'
 import { Merit } from './merit.entity'
 import { Vote } from './vote.entity'
+import { User } from './user.entity'
 
 @Entity()
 export class Employee {
